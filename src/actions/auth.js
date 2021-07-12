@@ -37,7 +37,7 @@ export const starRegisterWithEmail = ({ email, password, name }) => {
 export const startLoginEmailPassword = (email, password) => {
   return (dispatch) => {
     dispatch(startLogin());
-    firebase
+    return firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then(({ user }) => {
