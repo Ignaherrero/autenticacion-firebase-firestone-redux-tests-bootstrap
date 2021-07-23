@@ -23,11 +23,10 @@ const firebaseConfigTest = {
   measurementId: process.env.TEST_MEASUREMENTID,
 };
 
-// Initialize Firebase
-if (process.env.NODE_ENV === "development") {
-  firebase.initializeApp(firebaseConfigDevelopment);
-} else {
+if (process.env.NODE_ENV === "test") {
   firebase.initializeApp(firebaseConfigTest);
+} else {
+  firebase.initializeApp(firebaseConfigDevelopment);
 }
 
 const db = firebase.firestore();
